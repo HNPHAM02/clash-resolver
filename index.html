@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clash Resolver</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 10px; background: #111; color: #eee; }
+    input, select, button { margin: 4px; padding: 4px; }
+    .dice-entry { margin-bottom: 8px; }
+    .subtype-container { display: inline; }
+    button { background: #444; color: white; border: none; border-radius: 3px; }
+    button:hover { background: #666; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Clash Resolver (Web Edition)</h2>
+
+  <h3>User Stats</h3>
+  <label>Current HP: <input type="number" id="userHP" value="100"></label><br>
+  <label>Current Stagger: <input type="number" id="userStagger" value="0"></label>
+
+  <h3>Affinities (Damage Modifiers)</h3>
+  <strong>Health</strong><br>
+  Slash: <input type="number" id="aff_slash_health" value="0">
+  Pierce: <input type="number" id="aff_pierce_health" value="0">
+  Blunt: <input type="number" id="aff_blunt_health" value="0"><br>
+  <strong>Stagger</strong><br>
+  Slash: <input type="number" id="aff_slash_stagger" value="0">
+  Pierce: <input type="number" id="aff_pierce_stagger" value="0">
+  Blunt: <input type="number" id="aff_blunt_stagger" value="0">
+
+  <h3>User Dice</h3>
+  <div id="userDiceContainer"></div>
+  <button onclick="addDice('userDiceContainer')">+ Add User Die</button>
+
+  <h3>Target Dice</h3>
+  <div id="targetDiceContainer"></div>
+  <button onclick="addDice('targetDiceContainer')">+ Add Target Die</button>
+
+  <h3>Bonus Modifiers</h3>
+  <label>Bonus Damage (Offensive only):
+    <input type="number" id="bonusDamage" value="0">
+  </label><br>
+  <label>Bonus Stagger (Block only):
+    <input type="number" id="bonusStagger" value="0">
+  </label>
+
+  <br><br>
+  <button onclick="submitForm()">🛡️ Resolve Clash</button>
+
+  <hr>
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
